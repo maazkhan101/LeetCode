@@ -13,21 +13,8 @@ class Solution
     {
         // code here
         vector<int>ans;
-        /*for(int i=0;i<n;i++)
-        {
-            int temp;
-            for(int j=i+1;j<n;j++)
-            {
-                if(arr[i]<arr[j])
-                {
-                    temp=arr[i];    
-                    arr[i]=arr[j];
-                    arr[j]=temp;
-
-                }
-            }
-        }*/
-         sort(arr, arr + n, greater<int>());
+       
+        sort(arr, arr + n, greater<int>());
         for(int i=0;i<k;i++)
         {
         
