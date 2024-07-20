@@ -14,7 +14,7 @@ public:
                     t.push_back(st.top());
                     st.pop();
                 }
-                if (i < s.length()) { // Add space only if it's not the end of the string
+                if (i < s.length()) { 
                     t.push_back(' ');
                 }
             }
