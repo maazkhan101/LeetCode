@@ -13,7 +13,7 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
 
         vector<int>v;
-        // ListNode* temp=head;
+        
 
         for(int i=0;i<lists.size();i++)
         {
