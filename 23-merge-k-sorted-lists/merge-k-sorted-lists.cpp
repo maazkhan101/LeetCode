@@ -14,7 +14,6 @@ public:
 
         vector<int>v;
         
-
         for(int i=0;i<lists.size();i++)
         {
             ListNode* temp=lists[i];
