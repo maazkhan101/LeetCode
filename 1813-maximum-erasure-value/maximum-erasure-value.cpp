@@ -16,7 +16,10 @@ public:
                 m[nums[tail]]--;
                 tail++;
             }
-            sum=sum+nums[head];
+            if(m[nums[head]]==1)
+            {
+                sum=sum+nums[head];
+            }
         }   
 
         return max(ans,sum);
