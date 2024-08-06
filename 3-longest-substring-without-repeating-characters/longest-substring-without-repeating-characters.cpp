@@ -10,6 +10,7 @@ public:
 
             while(m[s[head]]>1)
             {
+                
                 ans=max(ans,head-tail);
                 m[s[tail]]--;
                 tail++;
