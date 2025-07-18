@@ -1,22 +1,27 @@
-
 class Solution {
 public:
-    vector<int> topKFrequent(vector<int>& nums, int k) 
-    {
-        vector<int>ans;
-        map<int,int>mp;
-        for(int i=0;i<nums.size();i++)
-            mp[nums[i]]++;
-        // vector<pair<int,int>>v;
-        vector<pair<int,int>>v;
-        for(auto it : mp )
-            v.push_back(make_pair(it.second,it.first));
-        sort(v.rbegin(),v.rend());
-        for(int i=0;i<v.size() && k!=0 ;i++)
-        {
-            ans.push_back(v[i].second);
-            k--;
-        }       
-        return ans; 
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+         unordered_map<int, int> m;
+    vector<int> ans;
+
+    // Step 1: Count frequency of each number
+    for (int i = 0; i < nums.size(); i++) {
+        m[nums[i]]++;
+    }
+
+    // Step 2: Copy map to a vector of pairs
+    vector<pair<int, int>> v(m.begin(), m.end());
+
+    // Step 3: Sort the vector in descending order of frequency (value)
+    sort(v.begin(), v.end(), [](const pair<int, int>& a, const pair<int, int>& b) {
+        return a.second > b.second; // Descending
+    });
+
+    // Step 4: Collect first k elements
+    for (int i = 0; i < k; i++) {
+        ans.push_back(v[i].first); // Only push the element (not frequency)
+    }
+
+    return ans;
     }
 };
