@@ -27,7 +27,7 @@ class Solution {
                             temp.add(nums[j]);
                             temp.add(nums[k]);
                             
-                            Collections.sort(temp);
+                            // Collections.sort(temp);
                             s.add(temp);
                             j++;
                             k--;
