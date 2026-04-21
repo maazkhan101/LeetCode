@@ -11,26 +11,33 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
+        
+        ListNode* slow=head;
+        ListNode* fast=head;
 
-            vector<int>v;
-            ListNode* temp=head;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        ListNode* prev=NULL;
+        while(slow!=NULL)
+        {
+            ListNode* next=slow->next;
+            slow->next=prev;
+            prev=slow;
+            slow=next;
+        }
 
-            while(temp!=NULL)
-            {
-                v.push_back(temp->val);
-                temp=temp->next;
-            }      
-            int i=0;
-            int j=v.size()-1;
-            int maxi=-1;
+        int maxi=-1;
+        ListNode* start=head;
 
-            while(i<j)
-            {
-                int sum=v[i] + v[j];
-                maxi=max(sum,maxi);
-                i++;
-                j--;
-            }
-            return maxi;
+        while(prev!=NULL)
+        {
+            maxi=max(maxi,prev->val+start->val);
+            start=start->next;
+            prev=prev->next;
+        }
+        return maxi;
     }
 };
