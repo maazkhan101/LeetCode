@@ -13,10 +13,7 @@ public:
             {
                 temp=temp + s[j];
             }
-            // if(j-i+1<k)
-            // {
-            //     j++;
-            // }
+            
             if(j-i+1==k)
             {
                 m.push_back(temp);
