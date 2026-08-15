@@ -8,6 +8,8 @@ public:
         while(i<j)
         {
             int sum=numbers[i]+numbers[j];
+
+
             if(sum==target)
             {
                 ans.push_back(i+1);
@@ -15,16 +17,18 @@ public:
                 i++;
                 j--;
             }
+
             if(sum>target)
             {
                 j--;
             }
+            
             if(sum<target)
             {
                 i++;
             }
-            
         }
+
         return ans;
     }
 };
