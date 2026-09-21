@@ -2,47 +2,41 @@ class Solution {
 public:
     int maxVowels(string s, int k) {
 
-            int maxvowels=0;
-            int windowvowels=0;
 
-            set<char>S;
+       int max_vow=-1;
 
-            S.insert('a');
-            
-            S.insert('e');
-            
-            S.insert('i');
-            
-            S.insert('o');
-            
-            S.insert('u');
+       int i=0;
+       int j=0;
 
-            for(int i=0;i<k;i++)
+       string str="AEIOUaeiou";
+
+
+        int count_vow=0;
+       while(j<s.size())
+       {
+            if(str.find(s[j])!=std::string::npos)
             {
-                if(S.find(s[i])!=S.end())
-                {
-                    windowvowels++;
-                }
+                count_vow++;
             }
-
-            maxvowels=windowvowels;
-
-
-            for(int i=k;i<s.length();i++)
+            if(j-i+1==k)
             {
-                if(S.find(s[i-k])!=S.end())
+                max_vow=max(max_vow,count_vow);
+
+                if(str.find(s[i])!=std::string::npos)
                 {
-                    windowvowels--;
+                    count_vow--;
+                    i++;
                 }
-                if(S.find(s[i])!=S.end())
-                {
-                    windowvowels++;
+                else{
+                    i++;
                 }
+
                 
-                 maxvowels=max(windowvowels,maxvowels);
             }
-           
 
-            return maxvowels;
+            j++;
+       }
+
+       return max_vow; 
     }
 };
