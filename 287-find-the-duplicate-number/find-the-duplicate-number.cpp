@@ -1,9 +1,8 @@
 class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
-        
-
         unordered_map<int,int>m;
+
         for(int i=0;i<nums.size();i++)
         {
             m[nums[i]]++;
@@ -16,6 +15,7 @@ public:
                 return i.first;
             }
         }
-        return -1 ;
+
+        return -1;
     }
 };
